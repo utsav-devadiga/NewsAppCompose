@@ -83,6 +83,14 @@ dependencies {
     implementation(libs.moshi.convertor)
     implementation(libs.logging.interceptor)
     implementation(libs.okhttp)
+    implementation(libs.coroutines.core)
+    implementation(libs.coroutines.android)
+
+    //splash
+    implementation(libs.splash.screen)
+
+    //coil
+    implementation(libs.coil)
 
 
     implementation(project(':utilities'))

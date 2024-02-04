@@ -19,6 +19,9 @@ moshi = "1.13.0"
 moshiconvertor = "2.9.0"
 gsonconvertor = "2.9.0"
 loggininterceptor = "4.8.1"
+coroutines = "1.7.3"
+splash = "1.0.1"
+coil="2.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -47,6 +50,10 @@ gson-convertor = { group = "com.squareup.retrofit2", name = "converter-gson", ve
 moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 moshi-convertor = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "moshiconvertor" }
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggininterceptor" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+splash-screen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
+coil = {group="io.coil-kt",name="coil-compose",version.ref="coil"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
