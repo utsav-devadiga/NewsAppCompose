@@ -218,6 +218,36 @@ fun EmptyStateComponent() {
     }
 }
 
+@Composable
+fun ErrorStateComponent() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        // Using an icon or image that is friendly and relevant to "no news" state
+        Icon(
+            painter = painterResource(id = R.drawable.ic_empty), // Ensure you have a friendly, relevant icon
+            contentDescription = "No News",
+            modifier = Modifier.size(100.dp),
+            tint = Color.LightGray // Soften the icon color to make it less stark
+        )
+
+        Spacer(modifier = Modifier.height(24.dp)) // Add some space between the icon and the text
+
+        Text(
+            text = "OOPS!\nSomething went wrong",
+            style = TextStyle(
+                fontSize = 16.sp,
+                textAlign = TextAlign.Center,
+                color = Color.Gray
+            ),
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
+}
 
 @Preview
 @Composable

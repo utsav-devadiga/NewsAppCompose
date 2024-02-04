@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.applabs.newsappcompose.ui.components.EmptyStateComponent
+import com.applabs.newsappcompose.ui.components.ErrorStateComponent
 import com.applabs.newsappcompose.ui.components.Loader
 import com.applabs.newsappcompose.ui.components.NewsList
 import com.applabs.newsappcompose.ui.components.NewsRowComponent
@@ -39,7 +40,7 @@ fun HomeScreen(
     val pagerState = rememberPagerState(
         initialPage = 0,
         initialPageOffsetFraction = 0f,
-        ) {
+    ) {
         articlesCount
     }
 
@@ -67,13 +68,14 @@ fun HomeScreen(
                     EmptyStateComponent()
                 }
 
-
             }
 
             is ResourceState.Error -> {
-
+                ErrorStateComponent()
                 val error = (newsRes as ResourceState.Error).error
                 Log.d(TAG, "HomeScreen: $error")
+
+
 
             }
 
