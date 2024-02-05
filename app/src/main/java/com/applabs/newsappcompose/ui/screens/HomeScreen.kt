@@ -32,16 +32,12 @@ fun HomeScreen(
 
     val newsRes by newsViewmodel.news.collectAsState()
 
-    val articlesCount = when (newsRes) {
-        is ResourceState.Success -> (newsRes as ResourceState.Success).data.articles.size
-        else -> 0 // Assuming no pages to show when loading or on error
-    }
 
     val pagerState = rememberPagerState(
         initialPage = 0,
         initialPageOffsetFraction = 0f,
     ) {
-        articlesCount
+        20
     }
 
     VerticalPager(
@@ -74,7 +70,6 @@ fun HomeScreen(
                 ErrorStateComponent()
                 val error = (newsRes as ResourceState.Error).error
                 Log.d(TAG, "HomeScreen: $error")
-
 
 
             }

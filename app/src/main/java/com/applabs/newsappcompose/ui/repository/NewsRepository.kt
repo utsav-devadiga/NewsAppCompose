@@ -16,13 +16,13 @@ class NewsRepository @Inject constructor(
         return flow {
             emit(ResourceState.Loading())
             val response = newsDataSource.getNewsHeadline(country)
-            if (response.isSuccessful && response.body() != null) {
+            if (response.code() == 200 && response.body() != null) {
                 emit(ResourceState.Success(response.body()!!))
             } else {
-                emit(ResourceState.Error("Error fetching Response"))
+                emit(ResourceState.Error("Error fetching Response: ${response.message()}"))
             }
-        }.catch {e->
-            emit(ResourceState.Error(e?.localizedMessage?:"Some error in flow"))
+        }.catch { e ->
+            emit(ResourceState.Error(e?.localizedMessage ?: "Some error in flow"))
         }
     }
 }
