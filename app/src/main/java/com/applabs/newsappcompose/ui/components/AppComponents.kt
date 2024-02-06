@@ -2,6 +2,7 @@ package com.applabs.newsappcompose.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,7 +40,7 @@ import com.applabs.newsappcompose.R
 import com.applabs.newsappcompose.data.entity.Article
 import com.applabs.newsappcompose.data.entity.NewsResponse
 import com.applabs.newsappcompose.data.entity.Source
-import com.applabs.newsappcompose.ui.theme.Purple40
+import com.applabs.newsappcompose.ui.theme.*
 
 @Composable
 fun Loader() {
@@ -66,11 +67,13 @@ fun NewsList(response: NewsResponse) {
 fun NewsRowComponent(page: Int, article: Article) {
     Column(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .padding(8.dp)
             .clip(RoundedCornerShape(12.dp))
-            .background(Color.White)
+            .background(Pink80)
+            .border(0.5.dp, color = PurpleGrey40, RoundedCornerShape(12.dp))
             .padding(8.dp)
+
     ) {
         article.urlToImage?.let { imageUrl ->
             AsyncImage(
