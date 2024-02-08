@@ -11,6 +11,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttp
 import okhttp3.OkHttpClient
@@ -63,7 +64,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesNewsRepository(newsDataSource: NewsDataSource, context: Context): NewsRepository {
+    fun providesNewsRepository(newsDataSource: NewsDataSource,  @ApplicationContext context: Context): NewsRepository {
         return NewsRepository(newsDataSource, context = context)
     }
 }
