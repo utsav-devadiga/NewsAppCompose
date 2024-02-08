@@ -22,17 +22,17 @@ class NewsRepository @Inject constructor(
             emit(ResourceState.Loading())
             if (CoreUtility.isInternetAvailable(context)) {
                 val response = newsDataSource.getNewsHeadline(country)
-                if (response.code() == 200 && response.body() != null) {
+                if (response.isSuccessful && response.body() != null) {
                     emit(ResourceState.Success(response.body()!!))
                 } else {
-                    emit(ResourceState.Error("Error fetching Response: ${response.message()}"))
+                    emit(ResourceState.Error("Error fetching response!\nError code: ${response.code()}"))
                 }
             } else {
-                emit(ResourceState.Error("Internet not available"))
+                emit(ResourceState.Error("Internet is not available.\nPlease try again after the network is restored."))
             }
 
         }.catch { e ->
-            emit(ResourceState.Error(e?.localizedMessage ?: "Some error in flow"))
+            emit(ResourceState.Error(e?.localizedMessage ?: "OOPS!\nSomething went wrong."))
         }
     }
 }

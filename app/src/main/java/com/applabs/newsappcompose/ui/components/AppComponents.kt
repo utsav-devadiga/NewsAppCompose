@@ -222,7 +222,7 @@ fun EmptyStateComponent() {
 }
 
 @Composable
-fun ErrorStateComponent() {
+fun ErrorStateComponent(text: String) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -241,7 +241,7 @@ fun ErrorStateComponent() {
         Spacer(modifier = Modifier.height(24.dp)) // Add some space between the icon and the text
 
         Text(
-            text = "OOPS!\nSomething went wrong",
+            text = text,
             style = TextStyle(
                 fontSize = 16.sp,
                 textAlign = TextAlign.Center,

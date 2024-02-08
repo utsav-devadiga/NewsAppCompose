@@ -67,8 +67,9 @@ fun HomeScreen(
             }
 
             is ResourceState.Error -> {
-                ErrorStateComponent()
+
                 val error = (newsRes as ResourceState.Error).error
+                ErrorStateComponent(error)
                 Log.d(TAG, "HomeScreen: $error")
 
 
