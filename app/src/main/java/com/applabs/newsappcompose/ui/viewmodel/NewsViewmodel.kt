@@ -1,5 +1,6 @@
 package com.applabs.newsappcompose.ui.viewmodel
 
+import android.content.Context
 import android.nfc.Tag
 import android.util.Log
 import androidx.lifecycle.ViewModel

@@ -1,5 +1,6 @@
 package com.applabs.newsappcompose.di
 
+import android.content.Context
 import com.applabs.newsappcompose.data.AppConstants
 import com.applabs.newsappcompose.data.api.ApiService
 import com.applabs.newsappcompose.data.datasource.NewsDataSource
@@ -62,7 +63,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesNewsRepository(newsDataSource: NewsDataSource): NewsRepository {
-        return NewsRepository(newsDataSource)
+    fun providesNewsRepository(newsDataSource: NewsDataSource, context: Context): NewsRepository {
+        return NewsRepository(newsDataSource, context = context)
     }
 }
