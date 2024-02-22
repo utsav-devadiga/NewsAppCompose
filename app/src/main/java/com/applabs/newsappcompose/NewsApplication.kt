@@ -8,7 +8,7 @@ import dagger.hilt.android.HiltAndroidApp
 class NewsApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        Log.d(TAG, "COMING INSIDE ONCREATE")
+        Log.d(TAG, "COMING INSIDE ON-CREATE")
     }
 
     companion object {
